@@ -2,82 +2,125 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>量子演示 | Quantum Demo</title>
+    <title>宏观量子力学 - 论文精要 | Macroscopic Quantum Mechanics</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
-            color: #24292e;
-            background-color: #f6f8fa;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e1e4e8;
-        }
-        h1 {
-            color: #2f363d;
-            margin-bottom: 10px;
-        }
-        .success-box {
-            background-color: #dafbe1;
-            border: 1px solid #7ee787;
-            color: #116329;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 30px 0;
-        }
-        code {
-            background-color: #eaeef2;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-            font-size: 0.9em;
-        }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #6a737d;
-            font-size: 0.9em;
-        }
+        body { font-family: 'Times New Roman', serif; margin: 40px; background: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 15px; }
+        .nav { text-align: center; margin: 30px 0; background: #34495e; padding: 15px; border-radius: 5px; }
+        .nav a { display: inline-block; margin: 0 10px; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; cursor: pointer; }
+        .nav a:hover { background: #2980b9; }
+        .paper-list { margin-top: 30px; }
+        .paper { background: #ecf0f1; margin: 20px 0; padding: 20px; border-radius: 8px; border-left: 4px solid #3498db; cursor: pointer; transition: transform 0.2s; }
+        .paper:hover { transform: translateX(5px); }
+        .paper h3 { margin-top: 0; color: #2c3e50; }
+        footer { text-align: center; margin-top: 40px; color: #7f8c8d; font-size: 0.9em; }
+        .nav-button { display: inline-block; margin: 10px; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; cursor: pointer; }
+        /* 为双语翻译新增样式 */
+        .translation { color: #666; font-style: italic; margin-top: 5px; font-size: 0.95em; }
+        .translation::before { content: "EN: "; font-weight: bold; color: #3498db; }
+        h1 .subtitle { display: block; font-size: 0.7em; margin-top: 5px; color: #7f8c8d; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🚀 Quantum Demo</h1>
-        <p>一个简洁的 GitHub Pages 演示网站</p>
-    </header>
-    
-    <main>
-        <div class="success-box">
-            <strong>祝贺！</strong> 您已成功登录并初始化此仓库。这是您完全可控的网站。
-        </div>
-        
-        <p>此页面由 <code>index.html</code> 文件提供。GitHub Pages 服务正在运行。</p>
-        
-        <h2>接下来您可以：</h2>
-        <ul>
-            <li><strong>编辑此文件</strong>：点击仓库中的 <code>index.html</code> 文件，然后点击编辑按钮来修改此页面内容。</li>
-            <li><strong>添加样式</strong>：在 <code>&lt;style&gt;</code> 标签内修改 CSS，或链接外部 <code>.css</code> 文件。</li>
-            <li><strong>添加交互</strong>：在 <code>&lt;script&gt;</code> 标签内编写 JavaScript 代码。</li>
-            <li><strong>添加更多页面</strong>：创建新的 <code>.html</code> 文件并相互链接。</li>
-        </ul>
-    </main>
-    
-    <footer>
-        <p>仓库：<strong>quantum-demo</strong> | 部署状态：<span id="status">正在运行</span></p>
-        <p>© 2025 MacroscopicQM. 基于 GitHub Pages 构建。</p>
-    </footer>
-    
+    <div class="container">
+        <header>
+            <h1>宏观量子力学<br><small>Macroscopic Quantum Mechanics</small></h1>
+            <p>为描述宏观天体固有的量子行为，我们建立了宏观自然单位制（CW-S-T-E），并由此奠基宏观量子力学。</p>
+            <p class="translation">To describe the inherent quantum behavior of macroscopic celestial bodies, we established the Macroscopic Natural Unit System (CW-S-T-E), thereby laying the foundation for Macroscopic Quantum Mechanics.</p>
+        </header>
+
+        <nav class="nav">
+            <a onclick="goToPage('index.html')">首页 / Home</a>
+            <a onclick="goToPage('paper-1.html')">论文1 / Paper 1</a>
+            <a onclick="goToPage('paper-2.html')">论文2 / Paper 2</a>
+            <a onclick="goToPage('paper-3.html')">论文3 / Paper 3</a>
+            <a onclick="goToPage('paper-4.html')">论文4 / Paper 4</a>
+            <a onclick="goToPage('paper-5.html')">论文5 / Paper 5</a>
+            <a onclick="goToPage('paper-6.html')">论文6 / Paper 6</a>
+            <a onclick="goToPage('paper-7.html')">论文7 / Paper 7</a>
+            <a onclick="goToPage('paper-8.html')">论文8 / Paper 8</a>
+            <a onclick="goToPage('paper-9.html')">论文9 / Paper 9</a>
+        </nav>
+
+        <section class="overview">
+            <h2>理论总览 / Overview of the Theory</h2>
+            <p><strong>核心发现 / Core Discovery</strong>：使用为微观世界设计的单位（如秒）来描述月球运动，无法观察到其与量子力学的关联。但是，在使用宏观自然单位（如天）描述时，发现月球轨道角动量呈现精确量子化：L = nħ，其中量子数 n ≈ 2.737 × 10⁶⁸。</p>
+            <p class="translation">When using units designed for the microscopic world (such as seconds) to describe lunar motion, no correlation with quantum mechanics is observable. However, when described using macroscopic natural units (such as days), the Moon's orbital angular momentum is found to be precisely quantized: L = nħ, where the quantum number n ≈ 2.737 × 10⁶⁸.</p>
+            <p>这一发现引导我们建立了宏观量子力学（MQM），提出了引力量子化假设 (F<sub>G</sub> = n·F₀)，发现了慧-智常数 (κ<sub>HZ</sub>)，并最终实现与广义相对论的实质性统一。</p>
+            <p class="translation">This discovery led us to establish Macroscopic Quantum Mechanics (MQM), propose the Gravitational Quantization Hypothesis (F<sub>G</sub> = n·F₀), discover the Hui-Zhi Constant (κ<sub>HZ</sub>), and ultimately achieve substantial unification with General Relativity.</p>
+        </section>
+
+        <section class="paper-list">
+            <h2>论文系列 / Paper Series</h2>
+            <div class="paper" onclick="goToPage('paper-1.html')">
+                <h3>论文1: 月球是宏观引力子吗？<br><span class="subtitle">Paper 1: Is the Moon a Macroscopic Graviton?</span></h3>
+                <p>发现月球轨道角动量量子化 L = nħ, n ≈ 2.75×10⁶⁸</p>
+                <p class="translation">Discovery of Lunar Orbital Angular Momentum Quantization L = nħ, n ≈ 2.75×10⁶⁸</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-2.html')">
+                <h3>论文2: 忠于牛顿<br><span class="subtitle">Paper 2: Staying True to Newton</span></h3>
+                <p>重塑万有引力定律及其与相对论的调和</p>
+                <p class="translation">Reformulating the Law of Universal Gravitation and its Reconciliation with Relativity</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-3.html')">
+                <h3>论文3: CW-S-T-E 自然单位制<br><span class="subtitle">Paper 3: The CW-S-T-E Natural Unit System</span></h3>
+                <p>解决宏观量子力学的"维度悖论"</p>
+                <p class="translation">Resolving the "Dimensional Paradox" of Macroscopic Quantum Mechanics</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-4.html')">
+                <h3>论文4: 宏观量子态的建立<br><span class="subtitle">Paper 4: Establishment of Macroscopic Quantum States</span></h3>
+                <p>定义宏观本征态与叠加态</p>
+                <p class="translation">Defining Macroscopic Eigenstates and Superposition States</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-5.html')">
+                <h3>论文5: 引力量子化假设<br><span class="subtitle">Paper 5: The Gravitational Quantization Hypothesis</span></h3>
+                <p>提出核心动力学定律 F<sub>G</sub> = n·F₀</p>
+                <p class="translation">Proposing the Core Dynamical Law F<sub>G</sub> = n·F₀</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-6.html')">
+                <h3>论文6: 慧-智常数与第五对称性<br><span class="subtitle">Paper 6: The Hui-Zhi Constant and the Fifth Symmetry</span></h3>
+                <p>发现深层数学结构 κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n</p>
+                <p class="translation">Discovery of the Deep Mathematical Structure κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-7.html')">
+                <h3>论文7: 与广义相对论的统一<br><span class="subtitle">Paper 7: Unification with General Relativity</span></h3>
+                <p>实现实质性统一</p>
+                <p class="translation">Achieving Substantive Unification</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-8.html')">
+                <h3>论文8: 范式革命<br><span class="subtitle">Paper 8: A Paradigm Revolution</span></h3>
+                <p>宣告从"量子微观"到"量子普适"的转变</p>
+                <p class="translation">Announcing the Shift from "Quantum Microscopic" to "Quantum Universal"</p>
+            </div>
+            <div class="paper" onclick="goToPage('paper-9.html')">
+                <h3>论文9: 月球作为宏观引力子<br><span class="subtitle">Paper 9: The Moon as a Macroscopic Graviton</span></h3>
+                <p>宏观量子力学的奠基 - 主论文</p>
+                <p class="translation">The Foundation of Macroscopic Quantum Mechanics - Main Paper</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="nav-button" onclick="goToPage('index.html')">返回首页 / Return to Home</div>
+            <p>© 2024 宏观量子力学研究 | 袁立 与 智教授 共同构建</p>
+            <p class="translation">© 2024 Macroscopic Quantum Mechanics Research | Co-established by Yuan Li and Professor Zhi</p>
+        </footer>
+    </div>
+
     <script>
-        // 简单的时间显示
-        document.getElementById('status').textContent = '在线';
-        console.log('量子演示网站已加载。');
+        // 统一的页面跳转函数
+        function goToPage(page) {
+            window.location.href = page;
+        }
+
+        // 为论文卡片添加点击事件
+        document.querySelectorAll('.paper').forEach(paper => {
+            paper.addEventListener('click', function() {
+                const link = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                goToPage(link);
+            });
+        });
     </script>
 </body>
 </html>
