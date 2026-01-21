@@ -58,5 +58,128 @@
             <a href="index.html">← 返回首页</a>
         </div>
     </div>
-</body>
+<!-- 插入到每个 paper-X.html 的 </body> 标签前 -->
+<script>
+// 宏观量子力学论文双语化脚本
+(function() {
+    // 翻译词典 (您可以根据每篇论文内容在这里添加更多词条)
+    const dict = {
+        // 通用术语
+        '宏观量子力学': 'Macroscopic Quantum Mechanics',
+        '量子': 'quantum',
+        '宏观': 'macroscopic',
+        '引力': 'gravity',
+        '相对论': 'relativity',
+        '广义相对论': 'General Relativity',
+        '牛顿': 'Newton',
+        '角动量': 'angular momentum',
+        '轨道': 'orbital',
+        '量子化': 'quantization',
+        '常数': 'constant',
+        '对称性': 'symmetry',
+        '单位制': 'unit system',
+        '假设': 'hypothesis',
+        '本征态': 'eigenstate',
+        '叠加态': 'superposition state',
+        '范式': 'paradigm',
+        '革命': 'revolution',
+        
+        // 短语和句子 (请根据实际页面内容补充)
+        '为描述宏观天体固有的量子行为': 'To describe the inherent quantum behavior of macroscopic celestial bodies',
+        '我们建立了宏观自然单位制（CW-S-T-E）': 'we established the Macroscopic Natural Unit System (CW-S-T-E)',
+        '并由此奠基宏观量子力学': 'thereby laying the foundation for Macroscopic Quantum Mechanics',
+        '核心发现': 'Core Discovery',
+        '使用为微观世界设计的单位（如秒）来描述月球运动': 'Using units designed for the microscopic world (such as seconds) to describe lunar motion',
+        '无法观察到其与量子力学的关联': 'no correlation with quantum mechanics is observable',
+        '在使用宏观自然单位（如天）描述时': 'When described using macroscopic natural units (such as days)',
+        '发现月球轨道角动量呈现精确量子化': 'the Moon\'s orbital angular momentum is found to be precisely quantized',
+        '其中量子数': 'where the quantum number',
+        '这一发现引导我们建立了宏观量子力学（MQM）': 'This discovery led us to establish Macroscopic Quantum Mechanics (MQM)',
+        '提出了引力量子化假设': 'propose the Gravitational Quantization Hypothesis',
+        '发现了慧-智常数': 'discover the Hui-Zhi Constant',
+        '并最终实现与广义相对论的实质性统一': 'and ultimately achieve substantial unification with General Relativity',
+        '返回首页': 'Return to Home',
+        '论文系列': 'Paper Series',
+        '理论总览': 'Overview of the Theory'
+    };
+    
+    // 智能翻译函数
+    function translateText(text) {
+        let translated = text;
+        // 先替换完整短语，再替换单词
+        Object.keys(dict).sort((a,b) => b.length - a.length).forEach(key => {
+            const regex = new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+            translated = translated.replace(regex, dict[key]);
+        });
+        return translated;
+    }
+    
+    // 处理页面元素
+    function processElement(element) {
+        if (element.tagName === 'SCRIPT' || element.tagName === 'STYLE' || 
+            element.classList.contains('translation') || element.classList.contains('subtitle')) {
+            return;
+        }
+        
+        // 处理文本节点
+        element.childNodes.forEach(node => {
+            if (node.nodeType === 3 && node.textContent.trim()) { // 文本节点
+                const original = node.textContent;
+                const translated = translateText(original);
+                
+                if (translated !== original && !/^\s*$/.test(original)) {
+                    const wrapper = document.createElement('span');
+                    wrapper.style.display = 'inline-block';
+                    wrapper.style.width = '100%';
+                    
+                    const originalSpan = document.createElement('span');
+                    originalSpan.textContent = original;
+                    
+                    const translationSpan = document.createElement('div');
+                    translationSpan.className = 'translation';
+                    translationSpan.textContent = translated;
+                    translationSpan.style.cssText = 'color:#666; font-style:italic; margin-top:2px; font-size:0.9em; padding-left:10px; border-left:2px solid #4CAF50;';
+                    
+                    wrapper.appendChild(originalSpan);
+                    wrapper.appendChild(translationSpan);
+                    
+                    node.parentNode.replaceChild(wrapper, node);
+                }
+            } else if (node.nodeType === 1) { // 元素节点
+                processElement(node);
+            }
+        });
+    }
+    
+    // 页面加载完成后执行
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => processElement(document.body));
+    } else {
+        processElement(document.body);
+    }
+})();
+</script>
+
+<style>
+/* 双语化样式 */
+.translation {
+    color: #666;
+    font-style: italic;
+    margin-top: 3px;
+    font-size: 0.92em;
+    line-height: 1.4;
+}
+.translation::before {
+    content: "EN: ";
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 0.9em;
+}
+/* 确保原有样式不受影响 */
+.container .translation {
+    margin-left: 0;
+    padding-left: 15px;
+}
+</style></body>
+
 </html>
