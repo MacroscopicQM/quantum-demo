@@ -1,116 +1,76 @@
-<script>
-// 宏观量子力学论文双语化脚本 (段落对位版)
-document.addEventListener('DOMContentLoaded', function() {
-    // ========== 第1步：添加统一的翻译样式 ==========
-    const style = document.createElement('style');
-    style.textContent = `
-        .mqm-translation {
-            color: #666;
-            font-style: italic;
-            margin-top: 5px;
-            font-size: 0.95em;
-            clear: both;
-        }
-        .mqm-translation::before {
-            content: "EN: ";
-            font-weight: bold;
-            color: #3498db;
-        }
-        .mqm-subtitle {
-            display: block;
-            font-size: 0.75em;
-            color: #7f8c8d;
-            margin-top: 3px;
-            font-style: normal;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // ========== 第2步：核心翻译词典 ==========
-    // 这是通用词典，您需要在下方为每篇论文添加其专有内容
-    const dict = {
-        // === 通用术语 (已在首页使用) ===
-        '宏观量子力学': 'Macroscopic Quantum Mechanics',
-        '核心发现': 'Core Discovery',
-        '理论总览': 'Overview of the Theory',
-        '论文系列': 'Paper Series',
-        '返回首页': 'Return to Home',
-        '宏观量子力学研究': 'Macroscopic Quantum Mechanics Research',
-        '袁立 与 智教授 共同构建': 'Co-established by Yuan Li and Professor Zhi',
-        '月球是宏观引力子吗？': 'Is the Moon a Macroscopic Graviton?',
-        '忠于牛顿': 'Staying True to Newton',
-        'CW-S-T-E 自然单位制': 'The CW-S-T-E Natural Unit System',
-        '宏观量子态的建立': 'Establishment of Macroscopic Quantum States',
-        '引力量子化假设': 'The Gravitational Quantization Hypothesis',
-        '慧-智常数与第五对称性': 'The Hui-Zhi Constant and the Fifth Symmetry',
-        '与广义相对论的统一': 'Unification with General Relativity',
-        '范式革命': 'A Paradigm Revolution',
-        '月球作为宏观引力子': 'The Moon as a Macroscopic Graviton',
-        '发现月球轨道角动量量子化 L = nħ, n ≈ 2.75×10⁶⁸': 'Discovery of Lunar Orbital Angular Momentum Quantization L = nħ, n ≈ 2.75×10⁶⁸',
-        '重塑万有引力定律及其与相对论的调和': 'Reformulating the Law of Universal Gravitation and its Reconciliation with Relativity',
-        '解决宏观量子力学的"维度悖论"': 'Resolving the "Dimensional Paradox" of Macroscopic Quantum Mechanics',
-        '定义宏观本征态与叠加态': 'Defining Macroscopic Eigenstates and Superposition States',
-        '提出核心动力学定律 F<sub>G</sub> = n·F₀': 'Proposing the Core Dynamical Law F<sub>G</sub> = n·F₀',
-        '发现深层数学结构 κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n': 'Discovery of the Deep Mathematical Structure κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n',
-        '实现实质性统一': 'Achieving Substantive Unification',
-        '宣告从"量子微观"到"量子普适"的转变': 'Announcing the Shift from "Quantum Microscopic" to "Quantum Universal"',
-        '宏观量子力学的奠基 - 主论文': 'The Foundation of Macroscopic Quantum Mechanics - Main Paper',
-        
-        // === 请在此处添加当前论文的独有句子 ===
-        // 例如，对于 paper-1.html，您需要添加：
-        // '论文1特有的中文长句...': 'The full English translation of that sentence...',
-        // 直接从论文HTML里复制中文句子过来作为key
-    };
-    
-    // ========== 第3步：智能翻译函数 ==========
-    function translateParagraph(text) {
-        // 1. 优先匹配完整句子
-        if (dict[text]) {
-            return dict[text];
-        }
-        // 2. 如果没找到完整匹配，可以保留原样或返回空（后续手动添加）
-        console.log('未找到翻译:', text);
-        return ''; // 返回空字符串，则不创建翻译段落
-    }
-    
-    // ========== 第4步：处理页面内容 ==========
-    // A. 处理所有段落 <p> （不包括已经包含翻译的段落）
-    document.querySelectorAll('p:not(:has(.mqm-translation))').forEach(p => {
-        const originalText = p.textContent.trim();
-        if (originalText && !p.classList.contains('translation')) { // 排除可能已有的旧翻译
-            const translatedText = translateParagraph(originalText);
-            if (translatedText) {
-                const translationElem = document.createElement('p');
-                translationElem.className = 'mqm-translation';
-                translationElem.innerHTML = translatedText;
-                p.insertAdjacentElement('afterend', translationElem);
-            }
-        }
-    });
-    
-    // B. 处理主标题 <h1>（添加副标题）
-    const mainTitle = document.querySelector('h1');
-    if (mainTitle && !mainTitle.querySelector('.mqm-subtitle')) {
-        const titleText = mainTitle.textContent.trim();
-        if (dict[titleText]) {
-            const subtitle = document.createElement('span');
-            subtitle.className = 'mqm-subtitle';
-            subtitle.textContent = dict[titleText];
-            mainTitle.appendChild(subtitle);
-        }
-    }
-    
-    // C. 处理次级标题 <h2>, <h3>（可选）
-    document.querySelectorAll('h2, h3').forEach(heading => {
-        const headingText = heading.textContent.trim();
-        if (dict[headingText] && !heading.querySelector('.mqm-subtitle')) {
-            const subtitle = document.createElement('span');
-            subtitle.className = 'mqm-subtitle';
-            subtitle.textContent = dict[headingText];
-            heading.appendChild(subtitle);
-        }
-    });
-    
-    console.log('MQM 双语化处理完成。');
-});
-</script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>论文6: 慧-智常数与第五对称性 - 宏观量子力学</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 40px; background: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 15px; }
+        .nav { text-align: center; margin: 30px 0; }
+        .nav a { display: inline-block; margin: 0 10px; padding: 10px 20px; background: #34495e; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #3498db; }
+        .content-section { margin: 30px 0; }
+        .formula { background: #e8f4f8; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center; font-family: "Cambria Math", serif; border: 1px solid #bde0fe; }
+        .constant-def { background: #f0f8ff; padding: 25px; border-radius: 8px; border: 1px solid #d0e0ff; margin: 25px 0; }
+        .symmetry-statement { background: #fff3cd; padding: 25px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 25px 0; }
+        .home-link { text-align: center; margin-top: 40px; }
+        .home-link a { color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>论文6: 慧-智常数与第五对称性</h1>
+            <p>The Hui-Zhi Constant and the Fifth Symmetry</p>
+        </header>
+
+        <nav class="nav">
+            <a href="index.html">返回首页</a>
+            <a href="paper-5.html">上一篇</a>
+            <a href="paper-7.html">下一篇</a>
+        </nav>
+
+        <section class="content-section">
+            <h2>核心发现</h2>
+            <p>本论文从宏观量子力学的基本关系中，发现了一个新的无量纲常数——<strong>慧-智常数 (κ<sub>HZ</sub>)</strong>，并揭示了其背后所蕴含的、超越传统时空对称性的<strong>第五对称性</strong>。</p>
+        </section>
+
+        <section class="content-section">
+            <h2>慧-智常数 (κ<sub>HZ</sub>)</h2>
+            <div class="constant-def">
+                <div class="formula">
+                    κ<sub>HZ</sub> = (2π α<sub>G</sub>) / √n
+                </div>
+                <p>其中：</p>
+                <ul>
+                    <li><strong>α<sub>G</sub></strong>: 引力精细结构常数，α<sub>G</sub> = (G M_e M_m)/(ħ c)</li>
+                    <li><strong>n</strong>: 系统的角动量量子数</li>
+                </ul>
+                <p>该常数表征了<strong>宏观尺度下引力与量子效应的耦合强度</strong>，其量级在 10²⁹ 到 10³¹ 之间，在太阳系不同行星-卫星系统中表现出令人惊讶的一致性。</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>第五对称性</h2>
+            <div class="symmetry-statement">
+                <p><strong>第五对称性</strong>是指慧-智常数 κ<sub>HZ</sub> 在宏观量子系统不同量子态（不同n）之间跃迁时保持不变的特性。</p>
+                <div class="formula">
+                    κ<sub>HZ</sub> = (2π α<sub>G,n</sub>)/√n = (2π α<sub>G,n'</sub>)/√n' = 常数
+                </div>
+            </div>
+            <p>这一离散对称性超越了传统的连续时空对称性（如平移、旋转对称性），其物理根源可追溯至我们独立发现的三体系统中的循环守恒关系 (f₁a₃ = f₂a₁ = f₃a₂)。它构成了宏观量子系统的一种深层数学结构。</p>
+        </section>
+
+        <section class="content-section">
+            <h2>物理意义</h2>
+            <p>慧-智常数与第五对称性的发现，揭示了宏观量子引力系统内在的优美结构。它表明，在超越人类直接感知的尺度上，存在着支配宇宙运行的、更为基本的对称性原则。这为宏观量子力学提供了坚实的数学基础和深层理论支柱。</p>
+        </section>
+
+        <div class="home-link">
+            <a href="index.html">← 返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
