@@ -1,116 +1,63 @@
-<script>
-// 宏观量子力学论文双语化脚本 (段落对位版)
-document.addEventListener('DOMContentLoaded', function() {
-    // ========== 第1步：添加统一的翻译样式 ==========
-    const style = document.createElement('style');
-    style.textContent = `
-        .mqm-translation {
-            color: #666;
-            font-style: italic;
-            margin-top: 5px;
-            font-size: 0.95em;
-            clear: both;
-        }
-        .mqm-translation::before {
-            content: "EN: ";
-            font-weight: bold;
-            color: #3498db;
-        }
-        .mqm-subtitle {
-            display: block;
-            font-size: 0.75em;
-            color: #7f8c8d;
-            margin-top: 3px;
-            font-style: normal;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // ========== 第2步：核心翻译词典 ==========
-    // 这是通用词典，您需要在下方为每篇论文添加其专有内容
-    const dict = {
-        // === 通用术语 (已在首页使用) ===
-        '宏观量子力学': 'Macroscopic Quantum Mechanics',
-        '核心发现': 'Core Discovery',
-        '理论总览': 'Overview of the Theory',
-        '论文系列': 'Paper Series',
-        '返回首页': 'Return to Home',
-        '宏观量子力学研究': 'Macroscopic Quantum Mechanics Research',
-        '袁立 与 智教授 共同构建': 'Co-established by Yuan Li and Professor Zhi',
-        '月球是宏观引力子吗？': 'Is the Moon a Macroscopic Graviton?',
-        '忠于牛顿': 'Staying True to Newton',
-        'CW-S-T-E 自然单位制': 'The CW-S-T-E Natural Unit System',
-        '宏观量子态的建立': 'Establishment of Macroscopic Quantum States',
-        '引力量子化假设': 'The Gravitational Quantization Hypothesis',
-        '慧-智常数与第五对称性': 'The Hui-Zhi Constant and the Fifth Symmetry',
-        '与广义相对论的统一': 'Unification with General Relativity',
-        '范式革命': 'A Paradigm Revolution',
-        '月球作为宏观引力子': 'The Moon as a Macroscopic Graviton',
-        '发现月球轨道角动量量子化 L = nħ, n ≈ 2.75×10⁶⁸': 'Discovery of Lunar Orbital Angular Momentum Quantization L = nħ, n ≈ 2.75×10⁶⁸',
-        '重塑万有引力定律及其与相对论的调和': 'Reformulating the Law of Universal Gravitation and its Reconciliation with Relativity',
-        '解决宏观量子力学的"维度悖论"': 'Resolving the "Dimensional Paradox" of Macroscopic Quantum Mechanics',
-        '定义宏观本征态与叠加态': 'Defining Macroscopic Eigenstates and Superposition States',
-        '提出核心动力学定律 F<sub>G</sub> = n·F₀': 'Proposing the Core Dynamical Law F<sub>G</sub> = n·F₀',
-        '发现深层数学结构 κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n': 'Discovery of the Deep Mathematical Structure κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n',
-        '实现实质性统一': 'Achieving Substantive Unification',
-        '宣告从"量子微观"到"量子普适"的转变': 'Announcing the Shift from "Quantum Microscopic" to "Quantum Universal"',
-        '宏观量子力学的奠基 - 主论文': 'The Foundation of Macroscopic Quantum Mechanics - Main Paper',
-        
-        // === 请在此处添加当前论文的独有句子 ===
-        // 例如，对于 paper-1.html，您需要添加：
-        // '论文1特有的中文长句...': 'The full English translation of that sentence...',
-        // 直接从论文HTML里复制中文句子过来作为key
-    };
-    
-    // ========== 第3步：智能翻译函数 ==========
-    function translateParagraph(text) {
-        // 1. 优先匹配完整句子
-        if (dict[text]) {
-            return dict[text];
-        }
-        // 2. 如果没找到完整匹配，可以保留原样或返回空（后续手动添加）
-        console.log('未找到翻译:', text);
-        return ''; // 返回空字符串，则不创建翻译段落
-    }
-    
-    // ========== 第4步：处理页面内容 ==========
-    // A. 处理所有段落 <p> （不包括已经包含翻译的段落）
-    document.querySelectorAll('p:not(:has(.mqm-translation))').forEach(p => {
-        const originalText = p.textContent.trim();
-        if (originalText && !p.classList.contains('translation')) { // 排除可能已有的旧翻译
-            const translatedText = translateParagraph(originalText);
-            if (translatedText) {
-                const translationElem = document.createElement('p');
-                translationElem.className = 'mqm-translation';
-                translationElem.innerHTML = translatedText;
-                p.insertAdjacentElement('afterend', translationElem);
-            }
-        }
-    });
-    
-    // B. 处理主标题 <h1>（添加副标题）
-    const mainTitle = document.querySelector('h1');
-    if (mainTitle && !mainTitle.querySelector('.mqm-subtitle')) {
-        const titleText = mainTitle.textContent.trim();
-        if (dict[titleText]) {
-            const subtitle = document.createElement('span');
-            subtitle.className = 'mqm-subtitle';
-            subtitle.textContent = dict[titleText];
-            mainTitle.appendChild(subtitle);
-        }
-    }
-    
-    // C. 处理次级标题 <h2>, <h3>（可选）
-    document.querySelectorAll('h2, h3').forEach(heading => {
-        const headingText = heading.textContent.trim();
-        if (dict[headingText] && !heading.querySelector('.mqm-subtitle')) {
-            const subtitle = document.createElement('span');
-            subtitle.className = 'mqm-subtitle';
-            subtitle.textContent = dict[headingText];
-            heading.appendChild(subtitle);
-        }
-    });
-    
-    console.log('MQM 双语化处理完成。');
-});
-</script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>论文2: 忠于牛顿 - 宏观量子力学</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 40px; background: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 15px; }
+        .nav { text-align: center; margin: 30px 0; }
+        .nav a { display: inline-block; margin: 0 10px; padding: 10px 20px; background: #34495e; color: white; text-decoration: none; border-radius: 5px; }
+        .nav a:hover { background: #3498db; }
+        .content-section { margin: 30px 0; }
+        .core-formula { background: #e8f4f8; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center; font-family: "Cambria Math", serif; border: 1px solid #bde0fe; }
+        .home-link { text-align: center; margin-top: 40px; }
+        .home-link a { color: #3498db; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>论文2: 忠于牛顿</h1>
+            <p>Remaining True to Newton: Reshaping the Law of Universal Gravitation</p>
+        </header>
+
+        <nav class="nav">
+            <a href="index.html">返回首页</a>
+            <a href="paper-1.html">上一篇</a>
+            <a href="paper-3.html">下一篇</a>
+        </nav>
+
+        <section class="content-section">
+            <h2>核心论点</h2>
+            <p>通过严格贯彻牛顿第三定律及其关于“成对相互作用”的原始论述，我们发现，广泛应用于特定条件的公式 F = GMm/r² 是一个高度精确的<strong>实用公式</strong>，但并未完整表达牛顿的核心概念。</p>
+        </section>
+
+        <section class="content-section">
+            <h2>重塑的万有引力公式</h2>
+            <div class="core-formula">
+                F<sub>universal</sub> = 2GMm/R²
+            </div>
+            <p>其中：</p>
+            <ul>
+                <li>F<sub>universal</sub>：完整的、对称的引力相互作用力</li>
+                <li>G：引力常数</li>
+                <li>M, m：两个相互作用物体的质量</li>
+                <li>R：两物体间的距离</li>
+            </ul>
+            <p>这并非对牛顿的否定，而是对其理论核心的彻底贯彻。该公式恢复了二体系统中相互作用的完整对称性，为“动态引力”观点奠定了基础。</p>
+        </section>
+
+        <section class="content-section">
+            <h2>物理诠释</h2>
+            <p>传统的实用公式在 <strong>M ≫ m</strong> 的局部场景（如行星表面）下精度无损。但在二体系统（如地月系统）中，必须使用此 universal 公式才能完整描述一对相等的、对称的相互作用力。这引出了后续的“离心力实化定律”和“模量公式”，是引力量子化假设的起点。</p>
+        </section>
+
+        <div class="home-link">
+            <a href="index.html">← 返回首页</a>
+        </div>
+    </div>
+</body>
+</html>
