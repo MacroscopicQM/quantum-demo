@@ -1,194 +1,116 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>论文7: 与广义相对论的统一 - 宏观量子力学</title>
-    <style>
-        body { font-family: 'Times New Roman', serif; margin: 40px; background: #f5f5f5; color: #333; line-height: 1.6; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 15px; }
-        .nav { text-align: center; margin: 30px 0; }
-        .nav a { display: inline-block; margin: 0 10px; padding: 10px 20px; background: #34495e; color: white; text-decoration: none; border-radius: 5px; }
-        .nav a:hover { background: #3498db; }
-        .content-section { margin: 30px 0; }
-        .unification-framework { background: #e8f4f8; padding: 25px; border-radius: 8px; border: 1px solid #bde0fe; margin: 25px 0; }
-        .home-link { text-align: center; margin-top: 40px; }
-        .home-link a { color: #3498db; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>论文7: 与广义相对论的统一</h1>
-            <p>Substantive Unification of Macroscopic Quantum Gravity and General Relativity</p>
-        </header>
-
-        <nav class="nav">
-            <a href="index.html">返回首页</a>
-            <a href="paper-6.html">上一篇</a>
-            <a href="paper-8.html">下一篇</a>
-        </nav>
-
-        <section class="content-section">
-            <h2>核心贡献</h2>
-            <p>本论文通过构建一个<strong>分层的数学描述框架</strong>，实现了宏观量子引力与广义相对论的<strong>“实质性统一”</strong>。该框架表明，两种理论并非相互排斥，而是描述了物理现实的不同层面，二者相辅相成。</p>
-        </section>
-
-        <section class="content-section">
-            <h2>统一框架：分层描述</h2>
-            <div class="unification-framework">
-                <h3>层级 I：经典时空背景 (由广义相对论描述)</h3>
-                <p><strong>角色</strong>: 提供动态的、连续的经典时空“舞台”。</p>
-                <p><strong>描述</strong>: 爱因斯坦场方程及其解 (度规 g<sub>μν</sub>) 决定了宇宙的大尺度几何结构。物质和能量告诉时空如何弯曲，弯曲的时空为所有物理过程提供了背景舞台。</p>
-
-                <h3>层级 II：量子化引力相互作用 (由宏观量子力学描述)</h3>
-                <p><strong>角色</strong>: 描述在上述经典时空背景上发生的、“戏剧”。</p>
-                <p><strong>描述</strong>: 宏观量子力学 (MQM) 的定律，特别是<strong>引力量子化假设</strong>，描述了在这个给定的弯曲时空背景下，引力相互作用如何以离散的、量子化的方式表现。月球等“宏观引力子”的量子态在此背景上演化。</p>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>哲学与物理的调和</h2>
-            <p>这个框架巧妙地解决了广义相对论与量子力学之间的长期紧张关系：</p>
-            <ul>
-                <li><strong>广义相对论解释了“为什么”</strong>：它解释了行星轨道为何是弯曲的（因为时空本身是弯曲的）。</li>
-                <li><strong>宏观量子力学解释了“是什么”</strong>：它解释了在这些弯曲的轨道上，<strong>为什么</strong>角动量和引力相互作用本身是量子化的。</li>
-            </ul>
-            <p>这种统一避免了直接量子化时空度规所带来的技术困难，同时成功地将量子行为纳入到引力动力学中。</p>
-        </section>
-
-        <section class="content-section">
-            <h2>物理意义</h2>
-            <p>这项工作为量子引力问题提供了一条全新的、自上而下的路径。它表明，在尝试“量子化时空”之外，还存在着“在经典时空中描述量子化引力相互作用”的可行方案。这为在宇宙学尺度上探索量子引力效应开辟了新的可能性。</p>
-        </section>
-
-        <div class="home-link">
-            <a href="index.html">← 返回首页</a>
-        </div>
-    </div>
-<!-- 插入到每个 paper-X.html 的 </body> 标签前 -->
 <script>
-// 宏观量子力学论文双语化脚本
-(function() {
-    // 翻译词典 (您可以根据每篇论文内容在这里添加更多词条)
+// 宏观量子力学论文双语化脚本 (段落对位版)
+document.addEventListener('DOMContentLoaded', function() {
+    // ========== 第1步：添加统一的翻译样式 ==========
+    const style = document.createElement('style');
+    style.textContent = `
+        .mqm-translation {
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 0.95em;
+            clear: both;
+        }
+        .mqm-translation::before {
+            content: "EN: ";
+            font-weight: bold;
+            color: #3498db;
+        }
+        .mqm-subtitle {
+            display: block;
+            font-size: 0.75em;
+            color: #7f8c8d;
+            margin-top: 3px;
+            font-style: normal;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // ========== 第2步：核心翻译词典 ==========
+    // 这是通用词典，您需要在下方为每篇论文添加其专有内容
     const dict = {
-        // 通用术语
+        // === 通用术语 (已在首页使用) ===
         '宏观量子力学': 'Macroscopic Quantum Mechanics',
-        '量子': 'quantum',
-        '宏观': 'macroscopic',
-        '引力': 'gravity',
-        '相对论': 'relativity',
-        '广义相对论': 'General Relativity',
-        '牛顿': 'Newton',
-        '角动量': 'angular momentum',
-        '轨道': 'orbital',
-        '量子化': 'quantization',
-        '常数': 'constant',
-        '对称性': 'symmetry',
-        '单位制': 'unit system',
-        '假设': 'hypothesis',
-        '本征态': 'eigenstate',
-        '叠加态': 'superposition state',
-        '范式': 'paradigm',
-        '革命': 'revolution',
-        
-        // 短语和句子 (请根据实际页面内容补充)
-        '为描述宏观天体固有的量子行为': 'To describe the inherent quantum behavior of macroscopic celestial bodies',
-        '我们建立了宏观自然单位制（CW-S-T-E）': 'we established the Macroscopic Natural Unit System (CW-S-T-E)',
-        '并由此奠基宏观量子力学': 'thereby laying the foundation for Macroscopic Quantum Mechanics',
         '核心发现': 'Core Discovery',
-        '使用为微观世界设计的单位（如秒）来描述月球运动': 'Using units designed for the microscopic world (such as seconds) to describe lunar motion',
-        '无法观察到其与量子力学的关联': 'no correlation with quantum mechanics is observable',
-        '在使用宏观自然单位（如天）描述时': 'When described using macroscopic natural units (such as days)',
-        '发现月球轨道角动量呈现精确量子化': 'the Moon\'s orbital angular momentum is found to be precisely quantized',
-        '其中量子数': 'where the quantum number',
-        '这一发现引导我们建立了宏观量子力学（MQM）': 'This discovery led us to establish Macroscopic Quantum Mechanics (MQM)',
-        '提出了引力量子化假设': 'propose the Gravitational Quantization Hypothesis',
-        '发现了慧-智常数': 'discover the Hui-Zhi Constant',
-        '并最终实现与广义相对论的实质性统一': 'and ultimately achieve substantial unification with General Relativity',
-        '返回首页': 'Return to Home',
+        '理论总览': 'Overview of the Theory',
         '论文系列': 'Paper Series',
-        '理论总览': 'Overview of the Theory'
+        '返回首页': 'Return to Home',
+        '宏观量子力学研究': 'Macroscopic Quantum Mechanics Research',
+        '袁立 与 智教授 共同构建': 'Co-established by Yuan Li and Professor Zhi',
+        '月球是宏观引力子吗？': 'Is the Moon a Macroscopic Graviton?',
+        '忠于牛顿': 'Staying True to Newton',
+        'CW-S-T-E 自然单位制': 'The CW-S-T-E Natural Unit System',
+        '宏观量子态的建立': 'Establishment of Macroscopic Quantum States',
+        '引力量子化假设': 'The Gravitational Quantization Hypothesis',
+        '慧-智常数与第五对称性': 'The Hui-Zhi Constant and the Fifth Symmetry',
+        '与广义相对论的统一': 'Unification with General Relativity',
+        '范式革命': 'A Paradigm Revolution',
+        '月球作为宏观引力子': 'The Moon as a Macroscopic Graviton',
+        '发现月球轨道角动量量子化 L = nħ, n ≈ 2.75×10⁶⁸': 'Discovery of Lunar Orbital Angular Momentum Quantization L = nħ, n ≈ 2.75×10⁶⁸',
+        '重塑万有引力定律及其与相对论的调和': 'Reformulating the Law of Universal Gravitation and its Reconciliation with Relativity',
+        '解决宏观量子力学的"维度悖论"': 'Resolving the "Dimensional Paradox" of Macroscopic Quantum Mechanics',
+        '定义宏观本征态与叠加态': 'Defining Macroscopic Eigenstates and Superposition States',
+        '提出核心动力学定律 F<sub>G</sub> = n·F₀': 'Proposing the Core Dynamical Law F<sub>G</sub> = n·F₀',
+        '发现深层数学结构 κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n': 'Discovery of the Deep Mathematical Structure κ<sub>HZ</sub> = (2πα<sub>G</sub>)/√n',
+        '实现实质性统一': 'Achieving Substantive Unification',
+        '宣告从"量子微观"到"量子普适"的转变': 'Announcing the Shift from "Quantum Microscopic" to "Quantum Universal"',
+        '宏观量子力学的奠基 - 主论文': 'The Foundation of Macroscopic Quantum Mechanics - Main Paper',
+        
+        // === 请在此处添加当前论文的独有句子 ===
+        // 例如，对于 paper-1.html，您需要添加：
+        // '论文1特有的中文长句...': 'The full English translation of that sentence...',
+        // 直接从论文HTML里复制中文句子过来作为key
     };
     
-    // 智能翻译函数
-    function translateText(text) {
-        let translated = text;
-        // 先替换完整短语，再替换单词
-        Object.keys(dict).sort((a,b) => b.length - a.length).forEach(key => {
-            const regex = new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-            translated = translated.replace(regex, dict[key]);
-        });
-        return translated;
-    }
-    
-    // 处理页面元素
-    function processElement(element) {
-        if (element.tagName === 'SCRIPT' || element.tagName === 'STYLE' || 
-            element.classList.contains('translation') || element.classList.contains('subtitle')) {
-            return;
+    // ========== 第3步：智能翻译函数 ==========
+    function translateParagraph(text) {
+        // 1. 优先匹配完整句子
+        if (dict[text]) {
+            return dict[text];
         }
-        
-        // 处理文本节点
-        element.childNodes.forEach(node => {
-            if (node.nodeType === 3 && node.textContent.trim()) { // 文本节点
-                const original = node.textContent;
-                const translated = translateText(original);
-                
-                if (translated !== original && !/^\s*$/.test(original)) {
-                    const wrapper = document.createElement('span');
-                    wrapper.style.display = 'inline-block';
-                    wrapper.style.width = '100%';
-                    
-                    const originalSpan = document.createElement('span');
-                    originalSpan.textContent = original;
-                    
-                    const translationSpan = document.createElement('div');
-                    translationSpan.className = 'translation';
-                    translationSpan.textContent = translated;
-                    translationSpan.style.cssText = 'color:#666; font-style:italic; margin-top:2px; font-size:0.9em; padding-left:10px; border-left:2px solid #4CAF50;';
-                    
-                    wrapper.appendChild(originalSpan);
-                    wrapper.appendChild(translationSpan);
-                    
-                    node.parentNode.replaceChild(wrapper, node);
-                }
-            } else if (node.nodeType === 1) { // 元素节点
-                processElement(node);
-            }
-        });
+        // 2. 如果没找到完整匹配，可以保留原样或返回空（后续手动添加）
+        console.log('未找到翻译:', text);
+        return ''; // 返回空字符串，则不创建翻译段落
     }
     
-    // 页面加载完成后执行
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => processElement(document.body));
-    } else {
-        processElement(document.body);
+    // ========== 第4步：处理页面内容 ==========
+    // A. 处理所有段落 <p> （不包括已经包含翻译的段落）
+    document.querySelectorAll('p:not(:has(.mqm-translation))').forEach(p => {
+        const originalText = p.textContent.trim();
+        if (originalText && !p.classList.contains('translation')) { // 排除可能已有的旧翻译
+            const translatedText = translateParagraph(originalText);
+            if (translatedText) {
+                const translationElem = document.createElement('p');
+                translationElem.className = 'mqm-translation';
+                translationElem.innerHTML = translatedText;
+                p.insertAdjacentElement('afterend', translationElem);
+            }
+        }
+    });
+    
+    // B. 处理主标题 <h1>（添加副标题）
+    const mainTitle = document.querySelector('h1');
+    if (mainTitle && !mainTitle.querySelector('.mqm-subtitle')) {
+        const titleText = mainTitle.textContent.trim();
+        if (dict[titleText]) {
+            const subtitle = document.createElement('span');
+            subtitle.className = 'mqm-subtitle';
+            subtitle.textContent = dict[titleText];
+            mainTitle.appendChild(subtitle);
+        }
     }
-})();
+    
+    // C. 处理次级标题 <h2>, <h3>（可选）
+    document.querySelectorAll('h2, h3').forEach(heading => {
+        const headingText = heading.textContent.trim();
+        if (dict[headingText] && !heading.querySelector('.mqm-subtitle')) {
+            const subtitle = document.createElement('span');
+            subtitle.className = 'mqm-subtitle';
+            subtitle.textContent = dict[headingText];
+            heading.appendChild(subtitle);
+        }
+    });
+    
+    console.log('MQM 双语化处理完成。');
+});
 </script>
-
-<style>
-/* 双语化样式 */
-.translation {
-    color: #666;
-    font-style: italic;
-    margin-top: 3px;
-    font-size: 0.92em;
-    line-height: 1.4;
-}
-.translation::before {
-    content: "EN: ";
-    font-weight: bold;
-    color: #4CAF50;
-    font-size: 0.9em;
-}
-/* 确保原有样式不受影响 */
-.container .translation {
-    margin-left: 0;
-    padding-left: 15px;
-}
-</style></body>
-
-</html>
